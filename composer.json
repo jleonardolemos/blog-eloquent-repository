@@ -1,0 +1,17 @@
+{
+    "name": "jleonardolemos/blog-eloquent-repository",
+    "description": "A blog repository eloquent implementation",
+    "authors": [
+        {
+            "name": "Leonardo Lemos",
+            "email": "j.leonardo.lemos@gmail.com",
+            "homepage": "http://l30.space",
+            "role": "Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Llemos\\BlogEloquentRepository\\": "src/"
+        }
+    }
+}
