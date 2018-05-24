@@ -41,7 +41,9 @@ class PostRepository extends AbstractRepository implements PostRepositoryContrac
 
     public function find(string $id): Entity
     {
-        return new PostEntity($this->model->findOrFail($id)->toArray());
+        return new PostEntity(
+            $this->model->with('comments')->findOrFail($id)->toArray()
+        );
     }
 
     public function findBy(string $field, $value): Entity
