@@ -23,6 +23,14 @@ class PostRepository extends AbstractRepository implements PostRepositoryContrac
         }));
     }
 
+    public function allWithComments(): Collection
+    {
+        return collect($this->model->with('comments')->get()->map(function ($post) {
+            $entity = new PostEntity($post->toArray());
+            return $entity;
+        }));
+    }
+
     public function findByUserId(int $userId) : Collection
     {
         return collect($this->model->whereUserId($userId)->get()->map(function ($post) {
