@@ -31,6 +31,14 @@ class CommentRepository extends AbstractRepository implements CommentRepositoryC
         }));
     }
 
+    public function findByPostId(int $postId) : Collection
+    {
+        return collect($this->model->wherePostId($postId)->get()->map(function ($comment) {
+            $entity = new CommentEntity($comment->toArray());
+            return $entity;
+        }));
+    }
+
     public function find(string $id) : Entity
     {
         return new CommentEntity($this->model->findOrFail($id)->toArray());
